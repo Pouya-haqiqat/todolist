@@ -1,0 +1,55 @@
+<html>
+<head> 
+<title> ToDo App </title>
+ <link href="/styles.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+    <div class="img-container">
+    </div>
+<h2> نرم افزار ساده تودو </h2>
+
+<form action ="/addtask" method="POST">
+
+<input type="text" name="newtask" placeholder="افزودن آیتم...">
+<button>اضافه کردن</button>
+
+<input type="text" name="search" style="margin-top: 1rem;" placeholder="جستجو ...">
+<button formaction="/search" type="submit" id="top">جستجو</button>
+
+<% if(searchResult.length > 0){ %>
+    <h2> نتیجه جستجو </h2>
+
+    <% for( var i = 0; i < searchResult.length; i++){ %>
+        <li><%= searchResult[i] %></li>
+    <% } %>
+<% } %>
+
+<h2> کارهای مانده </h2>
+
+<% for( var i = 0; i < task.length; i++){ %>
+    <li><input type="checkbox" name="check" value="<%= task[i] %>" /> <%= task[i] %> </li>
+<% } %>
+
+<button formaction="/completeTasks" type="submit" id="top"> تکمیل  </button>
+<button class="delete" formaction="/delete" type="submit" id="top"> حذف  </button>
+</form>
+
+<h2> کارهای تمام شده </h2>
+
+ <% for(var i = 0; i < complete.length; i++){ %>
+    <li class="completed"><input type="checkbox" checked"><%= complete[i] %> </li>
+<% } %>
+
+<p>
+   طراحی:
+   پویا حقیقت
+    - 
+   پروین حسینی
+</p>
+
+</div>
+
+</body>
+</html>
